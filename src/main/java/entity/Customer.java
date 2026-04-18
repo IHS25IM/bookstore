@@ -27,6 +27,9 @@ public class Customer {
     private String lastName;
 
     @Column(nullable = false)
+    private String adress;
+
+    @Column(nullable = false)
     private Integer zipCode;
 
     @Column(nullable = false)

@@ -19,5 +19,5 @@ public class CartLine {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "cart_id", nullable = false)
-    private Cart cart;
+    private Long cart;
 }
