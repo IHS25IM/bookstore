@@ -15,7 +15,7 @@ import java.util.List;
 @AllArgsConstructor
 @Getter
 @Setter
-public class Customer {
+public class Customer{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -27,7 +27,13 @@ public class Customer {
     private String lastName;
 
     @Column(nullable = false)
-    private String adress;
+    private String email;
+
+    @Column(nullable = false)
+    private String password;
+
+    @Column(nullable = false)
+    private String address;
 
     @Column(nullable = false)
     private Integer zipCode;

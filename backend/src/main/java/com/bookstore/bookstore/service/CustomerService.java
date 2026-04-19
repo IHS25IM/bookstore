@@ -1,6 +1,8 @@
 package com.bookstore.bookstore.service;
 
 import com.bookstore.bookstore.dto.CustomerDTO;
+import com.bookstore.bookstore.dto.request.CustomerRequestDTO;
+import com.bookstore.bookstore.dto.response.CustomerResponseDTO;
 import com.bookstore.bookstore.entity.Customer;
 import lombok.RequiredArgsConstructor;
 import com.bookstore.bookstore.mapper.CustomerMapper;
@@ -17,25 +19,25 @@ public class CustomerService {
     private final CustomerMapper customerMapper;
 
     @Transactional(readOnly = true)
-    public List<CustomerDTO> getAllCustomers(){
+    public List<CustomerResponseDTO> getAllCustomers(){
         return customerMapper.toResponseList(customerRepository.findAll());
     }
 
     @Transactional(readOnly = true)
-    public CustomerDTO getCustomerById(Long id){
+    public CustomerResponseDTO getCustomerById(Long id){
         Customer customer = customerRepository.findById(id).orElseThrow(() -> new RuntimeException("Customer not found"));
         return customerMapper.toResponseDTO(customer);
     }
 
     @Transactional
-    public CustomerDTO createCustomer(CustomerDTO request){
+    public CustomerResponseDTO createCustomer(CustomerRequestDTO request){
         Customer customer = customerMapper.toEntity(request);
         Customer saved = customerRepository.save(customer);
         return customerMapper.toResponseDTO(saved);
     }
 
     @Transactional
-    public CustomerDTO updateCustomer(Long id, CustomerDTO request){
+    public CustomerResponseDTO updateCustomer(Long id, CustomerRequestDTO request){
         Customer customer = customerMapper.toEntity(request);
         Customer saved = customerRepository.save(customer);
         return  customerMapper.toResponseDTO(saved);
