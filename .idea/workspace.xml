@@ -4,22 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fac8e0a2-6fad-4ace-8fc4-fff5449a424d" name="Changes" comment="feat: add JWT authentication with Spring Security&#10;- Add /api/auth/register and /api/auth/login endpoints&#10;&#10;- Configure Spring Security with BCrypt password hashing and JWT filter&#10;&#10;- Fix frontend routing, handleChange bug, and authService imports&#10;&#10;- Add react-router-dom and react-toastify dependencies">
-      <change afterPath="$PROJECT_DIR$/backend/src/test/java/com/bookstore/bookstore/controller/BookControllerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/test/java/com/bookstore/bookstore/controller/CartControllerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/test/java/com/bookstore/bookstore/controller/CustomerControllerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/test/java/com/bookstore/bookstore/controller/OrderControllerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/test/java/com/bookstore/bookstore/mapper/BookMapperTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/test/java/com/bookstore/bookstore/mapper/CartMapperTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/test/java/com/bookstore/bookstore/mapper/CustomerMapperTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/test/java/com/bookstore/bookstore/mapper/OrderMapperTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/test/java/com/bookstore/bookstore/services/BookServiceTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/test/java/com/bookstore/bookstore/services/CartServiceTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/test/java/com/bookstore/bookstore/services/CustomerServiceTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/test/java/com/bookstore/bookstore/services/OrderServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/bookstore/bookstore/controller/BookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/bookstore/bookstore/controller/BookController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/bookstore/bookstore/controller/CartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/bookstore/bookstore/controller/CartController.java" afterDir="false" />
+    <list default="true" id="fac8e0a2-6fad-4ace-8fc4-fff5449a424d" name="Changes" comment="CartController and BookController Tests + setup for the others Tests">
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/bookstore/bookstore/controller/OrderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/bookstore/bookstore/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/bookstore/bookstore/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/bookstore/bookstore/controller/CartControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/bookstore/bookstore/controller/CartControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/bookstore/bookstore/controller/CustomerControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/bookstore/bookstore/controller/CustomerControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/bookstore/bookstore/controller/OrderControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/bookstore/bookstore/controller/OrderControllerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,6 +56,8 @@
     "JUnit.CartControllerTest.deleteCart_shouldReturnNoContent.executor": "Run",
     "JUnit.CartControllerTest.executor": "Run",
     "JUnit.CartControllerTest.getAllCarts_shouldReturnOk.executor": "Run",
+    "JUnit.CustomerControllerTest.executor": "Run",
+    "JUnit.OrderControllerTest.executor": "Run",
     "Maven.bookstore [clean].executor": "Run",
     "Maven.bookstore [compile].executor": "Run",
     "Maven.bookstore [test].executor": "Run",
@@ -89,39 +82,7 @@
       <recent name="$PROJECT_DIR$/backend" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.CartControllerTest.deleteCart_shouldReturnNoContent">
-    <configuration name="BookControllerTest.deleteBook_shouldReturnNoContent" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="bookstore" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.bookstore.bookstore.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.bookstore.bookstore.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.bookstore.bookstore.controller.BookControllerTest" />
-      <option name="METHOD_NAME" value="deleteBook_shouldReturnNoContent" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="BookControllerTest.deleteBook_unknownId_shouldReturnNotFound" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="bookstore" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.bookstore.bookstore.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.bookstore.bookstore.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.bookstore.bookstore.controller.BookControllerTest" />
-      <option name="METHOD_NAME" value="deleteBook_unknownId_shouldReturnNotFound" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.CustomerControllerTest">
     <configuration name="CartControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="bookstore" />
       <extension name="coverage">
@@ -169,13 +130,43 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="CustomerControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="bookstore" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.bookstore.bookstore.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.bookstore.bookstore.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.bookstore.bookstore.controller.CustomerControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OrderControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="bookstore" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.bookstore.bookstore.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.bookstore.bookstore.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.bookstore.bookstore.controller.OrderControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.CustomerControllerTest" />
+        <item itemvalue="JUnit.OrderControllerTest" />
         <item itemvalue="JUnit.CartControllerTest.deleteCart_shouldReturnNoContent" />
         <item itemvalue="JUnit.CartControllerTest" />
         <item itemvalue="JUnit.CartControllerTest.getAllCarts_shouldReturnOk" />
-        <item itemvalue="JUnit.BookControllerTest.deleteBook_unknownId_shouldReturnNotFound" />
-        <item itemvalue="JUnit.BookControllerTest.deleteBook_shouldReturnNoContent" />
       </list>
     </recent_temporary>
   </component>
@@ -226,7 +217,23 @@
       <option name="project" value="LOCAL" />
       <updated>1776628673239</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="CartController and BookController Tests">
+      <option name="closed" value="true" />
+      <created>1776790620171</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1776790620171</updated>
+    </task>
+    <task id="LOCAL-00006" summary="CartController and BookController Tests + setup for the others Tests">
+      <option name="closed" value="true" />
+      <created>1776790641270</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1776790641270</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -234,6 +241,8 @@
     <MESSAGE value="the full second layer of the project — DTOs, mappers, repositories, services, and controllers for Book, Cart, CartLine, Customer, Order, and OrderLine." />
     <MESSAGE value="restructure project into backend/ subdirectory and add OpenAPI configuration  &#10;- moved all Spring Boot source files from root src/ into backend/&#10;- fixed package names to match com.bookstore.bookstore structure across all layers&#10;- added OpenAPIConfiguration.java for Swagger/OpenAPI setup&#10;- updated application.yaml with proper configuration&#10;- updated application.yaml with proper configuration" />
     <MESSAGE value="feat: add JWT authentication with Spring Security&#10;- Add /api/auth/register and /api/auth/login endpoints&#10;&#10;- Configure Spring Security with BCrypt password hashing and JWT filter&#10;&#10;- Fix frontend routing, handleChange bug, and authService imports&#10;&#10;- Add react-router-dom and react-toastify dependencies" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: add JWT authentication with Spring Security&#10;- Add /api/auth/register and /api/auth/login endpoints&#10;&#10;- Configure Spring Security with BCrypt password hashing and JWT filter&#10;&#10;- Fix frontend routing, handleChange bug, and authService imports&#10;&#10;- Add react-router-dom and react-toastify dependencies" />
+    <MESSAGE value="CartController and BookController Tests" />
+    <MESSAGE value="CartController and BookController Tests + setup for the others Tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="CartController and BookController Tests + setup for the others Tests" />
   </component>
 </project>

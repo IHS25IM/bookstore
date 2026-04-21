@@ -43,7 +43,6 @@ public class CartControllerTest {
     private ObjectMapper objectMapper;
 
     //Get tests
-
     @Test
     public void getAllCarts_shouldReturnOk() throws Exception{
         List<CartDTO> response = Instancio.createList(CartDTO.class);
