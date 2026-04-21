@@ -1,0 +1,363 @@
+openapi: 3.0.1
+info:
+  title: BookStore API
+  description: This API exposes endpoints to manage the book store.
+  version: "1.0"
+servers:
+- url: http://localhost:8080
+  description: Development
+security:
+- bearerAuth: []
+paths:
+  /api/customers:
+    get:
+      tags:
+      - customer-controller
+      operationId: getAllCustomers
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/CustomerDTO"
+    put:
+      tags:
+      - customer-controller
+      operationId: updateCustomer
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CustomerDTO"
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/CustomerDTO"
+    post:
+      tags:
+      - customer-controller
+      operationId: createCustomer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CustomerDTO"
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/CustomerDTO"
+    delete:
+      tags:
+      - customer-controller
+      operationId: deleteCustomer
+      parameters: []
+      responses:
+        "200":
+          description: OK
+  /api/carts:
+    get:
+      tags:
+      - cart-controller
+      operationId: getAllCarts
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/CartDTO"
+    put:
+      tags:
+      - cart-controller
+      operationId: updateCart
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CartDTO"
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/CartDTO"
+    post:
+      tags:
+      - cart-controller
+      operationId: createCart
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CartDTO"
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/CartDTO"
+    delete:
+      tags:
+      - cart-controller
+      operationId: deleteCart
+      parameters: []
+      responses:
+        "200":
+          description: OK
+  /api/books:
+    get:
+      tags:
+      - book-controller
+      operationId: getAllBooks
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/BookDTO"
+    put:
+      tags:
+      - book-controller
+      operationId: updateBook
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/BookDTO"
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/BookDTO"
+    post:
+      tags:
+      - book-controller
+      operationId: createBook
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/BookDTO"
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/BookDTO"
+    delete:
+      tags:
+      - book-controller
+      operationId: deleteBook
+      parameters: []
+      responses:
+        "200":
+          description: OK
+  /api/customers/{id}:
+    get:
+      tags:
+      - customer-controller
+      operationId: getCustomerById
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/CustomerDTO"
+  /api/carts/{id}:
+    get:
+      tags:
+      - cart-controller
+      operationId: getCartById
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/CartDTO"
+  /api/books/{id}:
+    get:
+      tags:
+      - book-controller
+      operationId: getBookById
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/BookDTO"
+components:
+  schemas:
+    Cart:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        cartLines:
+          type: array
+          items:
+            $ref: "#/components/schemas/CartLine"
+        customer:
+          $ref: "#/components/schemas/Customer"
+    CartDTO:
+      required:
+      - cartLines
+      - customer_id
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        cartLines:
+          type: array
+          items:
+            $ref: "#/components/schemas/CartLineDTO"
+        customer_id:
+          $ref: "#/components/schemas/Customer"
+    CartLine:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        cart:
+          $ref: "#/components/schemas/Cart"
+    CartLineDTO:
+      required:
+      - cart_id
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        cart_id:
+          $ref: "#/components/schemas/Cart"
+    Customer:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        firstName:
+          type: string
+        lastName:
+          type: string
+        adress:
+          type: string
+        zipCode:
+          type: integer
+          format: int32
+        city:
+          type: string
+        country:
+          type: string
+        carts:
+          type: array
+          items:
+            $ref: "#/components/schemas/Cart"
+    CustomerDTO:
+      required:
+      - adress
+      - carts
+      - city
+      - country
+      - firstName
+      - lastName
+      - zipCode
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        firstName:
+          type: string
+        lastName:
+          type: string
+        adress:
+          type: string
+        zipCode:
+          type: integer
+          format: int32
+        city:
+          type: string
+        country:
+          type: string
+        carts:
+          type: array
+          items:
+            $ref: "#/components/schemas/CartDTO"
+    BookDTO:
+      required:
+      - author
+      - price
+      - title
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        title:
+          type: string
+        author:
+          type: string
+        price:
+          type: number
+          format: double
+  securitySchemes:
+    bearerAuth:
+      type: http
+      name: bearerAuth
+      scheme: bearer
+      bearerFormat: JWT
